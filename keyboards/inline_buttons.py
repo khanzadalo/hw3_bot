@@ -9,3 +9,5 @@ async def start_menu_keyboard():
     )
     markup.add(registration_button)
     return markup
+
+

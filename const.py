@@ -9,3 +9,4 @@ PROFILE_TEXT = "*Nickname:* {nickname}\n" \
                "*Gender:* {gender}\n" \
                "*Married:* {married}\n" \
                "*Phone_number:* {phone_number}"
+

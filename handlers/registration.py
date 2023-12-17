@@ -6,7 +6,6 @@ from aiogram.dispatcher import FSMContext
 from const import PROFILE_TEXT
 from database.sql_commands import Database
 
-
 class RegistrationStates(StatesGroup):
     nickname = State()
     biography = State()
@@ -18,11 +17,19 @@ class RegistrationStates(StatesGroup):
 
 
 async def registration_start(call: types.CallbackQuery):
-    await bot.send_message(
-        chat_id=call.from_user.id,
-        text='Send me your nickname, please!!!'
-    )
-    await RegistrationStates.nickname.set()
+    db = Database()
+    user = db.sql_select_user(call.from_user.id)
+    if user:
+        await bot.send_message(
+            chat_id=call.from_user.id,
+            text='Looks like you are already registered!'
+        )
+    else:
+        await bot.send_message(
+            chat_id=call.from_user.id,
+            text='Send me your nickname, please!!!'
+        )
+        await RegistrationStates.nickname.set()
 
 
 async def load_nickname(message: types.Message,
@@ -87,8 +94,7 @@ async def load_gender(message: types.Message,
     await bot.send_message(
         chat_id=message.from_user.id,
         text='Send me your phone number\n'
-             'Send me only numeric answer\n'
-             'Example: 0707707707\n'
+             'Example: +996707707707'
     )
     await RegistrationStates.next()
 
