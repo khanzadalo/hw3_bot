@@ -4,6 +4,7 @@ from handlers import (
     start,
     registration,
     profile,
+    reference,
 )
 from database import sql_commands
 
@@ -16,6 +17,7 @@ async def on_startup(_):
 start.register_start_handlers(dp=dp)
 registration.register_registration_handlers(dp=dp)
 profile.register_profile_handlers(dp=dp)
+reference.register_reference_handlers(dp=dp)
 
 if __name__ == "__main__":
     executor.start_polling(
