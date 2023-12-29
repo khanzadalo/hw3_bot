@@ -23,11 +23,16 @@ async def start_menu_keyboard():
         "Reference list 🧾",
         callback_data="reference_list"
     )
+    parser_links_button = InlineKeyboardButton(
+        "Parser",
+        callback_data="parser_links"
+    )
     markup.add(registration_button)
     markup.add(profile_button)
     markup.add(view_profile_button)
     markup.add(reference_menu_button)
     markup.add(reference_list_button)
+    markup.add(parser_links_button)
     return markup
 
 

@@ -5,6 +5,7 @@ from handlers import (
     registration,
     profile,
     reference,
+    anime_handler
 )
 from database import sql_commands
 
@@ -18,6 +19,7 @@ start.register_start_handlers(dp=dp)
 registration.register_registration_handlers(dp=dp)
 profile.register_profile_handlers(dp=dp)
 reference.register_reference_handlers(dp=dp)
+anime_handler.register_links_handlers(dp=dp)
 
 if __name__ == "__main__":
     executor.start_polling(
