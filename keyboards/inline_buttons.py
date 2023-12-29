@@ -19,10 +19,15 @@ async def start_menu_keyboard():
         "Reference Menu 🧷",
         callback_data="reference_menu"
     )
+    reference_list_button = InlineKeyboardButton(
+        "Reference list 🧾",
+        callback_data="reference_list"
+    )
     markup.add(registration_button)
     markup.add(profile_button)
     markup.add(view_profile_button)
     markup.add(reference_menu_button)
+    markup.add(reference_list_button)
     return markup
 
 

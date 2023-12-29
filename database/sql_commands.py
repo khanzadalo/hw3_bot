@@ -92,6 +92,7 @@ class Database:
             (tg_id,)
         )
         self.connection.commit()
+
     def sql_update_user_link(self, link, tg_id):
         self.cursor.execute(
             sql_queries.UPDATE_USER_LINK_QUERY,
@@ -152,5 +153,13 @@ class Database:
             (owner,)
         )
         self.connection.commit()
+
+    def get_referral_list(self, tg_id):
+        self.cursor.execute(
+            sql_queries.SELECT_REFERRAL_LIST,
+            (tg_id,)
+        )
+        self.connection.commit()
+
 
 
